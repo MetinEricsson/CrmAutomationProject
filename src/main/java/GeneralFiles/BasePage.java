@@ -228,6 +228,19 @@ public class BasePage {
         return elementExist;
     }
 
+    public String getData(By locator){
+
+        try {
+            WebElement element= driver.findElement(locator);
+            return element.getText();
+        }catch (Exception e){
+            reporter.Report_Fail(e.getMessage());
+        }
+        return "";
+    }
+
+
+
 
 
 

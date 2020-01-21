@@ -20,7 +20,8 @@ public class FiberSatis extends TestBase {
                 .fiberPaketSec(numberOfPacket)
                 .sonrakiAdimButonTikla_UrunSecimi()
                 .urunKontrol_GozdenGecir(numberOfPacket)
-                .siparisiBaslatButonTikla();
+                .siparisiBaslatButonTikla()
+                .siparisMesajKontrol();
 
 
     }

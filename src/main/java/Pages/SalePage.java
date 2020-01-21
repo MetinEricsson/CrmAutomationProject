@@ -11,6 +11,7 @@ public class SalePage extends MainPage {
     private static By sonrakiAdim_UrunSecimi_Btn= By.xpath("//span[@class='mat-button-wrapper'][text()='Sonraki Adım']");
     private static By secimiIptalEt_GozdenGecir_Btn= By.xpath("//button[@class='btn btn-danger btn-sm btn-round'][text()='Seçimi İptal Et']");
     private static By siparisiBaslat_Btn= By.xpath("//button/span[@class='mat-button-wrapper'][text()='Siparişi Başlat']");
+    private static By siparisPopUpMessage_Txt= By.xpath("//simple-snack-bar[@class='mat-simple-snackbar ng-star-inserted']/span");
 
     public SalePage tcknGir(String identityNo){
 
@@ -121,6 +122,28 @@ public class SalePage extends MainPage {
         }
         return this;
     }
+
+    public SalePage siparisMesajKontrol(){
+
+        try {
+
+            String message= "nolu sipariş oluşturulmuştur.";
+            waitElementWithThreadSleep(siparisPopUpMessage_Txt,5);
+            String getData= getData(siparisPopUpMessage_Txt);
+
+            if (getData.contains(message)){
+                reporter.Report_Pass("Siparis basarili bir sekilde olusmustur. Ekranda alinan Mesaj: "
+                +getData);
+            }else{
+                reporter.Report_Fail("Siparis olusturulurken hata alinmistir! ");
+            }
+
+        }catch (Exception e){
+            reporter.Report_Fail(e.getMessage());
+        }
+        return this;
+    }
+
 
 
 
