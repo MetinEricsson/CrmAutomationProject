@@ -11,10 +11,11 @@ public class FiberSatis extends TestBase {
         MainPage mainPage= new MainPage();
         SalePage salePage= new SalePage();
         int numberOfPacket=1;
+        String identityNo="12332112345";
 
         mainPage.openMainPage()
                  .satisMenuSec();
-        salePage.tcknGir("12332112345")
+        salePage.tcknGir(identityNo)
                 .tcknAra()
                 .sonrakiAdimButonTikla_MusteriSecimi()
                 .fiberPaketSec(numberOfPacket)

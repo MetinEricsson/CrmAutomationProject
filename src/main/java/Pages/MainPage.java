@@ -11,7 +11,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MainPage extends BasePage {
 
-    private static By satisMenu_Btn= By.xpath("//a[@ng-reflect-router-link='/sales']/p");
+    private static By satisMenu_Btn= By.xpath("//a/p[text()='Satış']");
+    private static By hizmetSorgulamaMenu_Btn= By.xpath("//a/p[text()='Hizmet Sorgulama']");
 
     ExtendReportMethods reporter=new ExtendReportMethods();
 
@@ -31,10 +32,24 @@ public class MainPage extends BasePage {
     public MainPage satisMenuSec(){
 
         try {
+            waitElementWithThreadSleep(satisMenu_Btn,5);
             clickElement(satisMenu_Btn);
             reporter.Report_Info("Menuden Satis tabi secilmistir.");
         }catch (Exception e){
             reporter.Report_Fail("Menu Satis tabinda hata alinmistir! Detay: "+e.getMessage());
+        }
+
+        return this;
+    }
+
+    public MainPage hizmetSorgulamaMenuSec(){
+
+        try {
+            waitElementWithThreadSleep(hizmetSorgulamaMenu_Btn,5);
+            clickElement(hizmetSorgulamaMenu_Btn);
+            reporter.Report_Info("Servis Sorgulama tabi secilmistir.");
+        }catch (Exception e){
+            reporter.Report_Fail("Servis Sorgulama tabinda hata alinmistir! Detay: "+e.getMessage());
         }
 
         return this;
