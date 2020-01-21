@@ -15,7 +15,6 @@ import java.util.Properties;
 public class TestBase {
 
     ExtendReportMethods extendReportMethods= new ExtendReportMethods();
-    //public static TestNGCucumberRunner testNGCucumberRunner;
 
     public static String BASEURL=null;
     public static String BROWSER=null;
@@ -65,20 +64,6 @@ public class TestBase {
 
     }
 
-
-//    @BeforeClass(alwaysRun = true)
-//    public void beforeClass(){
-//
-//        testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
-//    }
-
-//    @DataProvider(parallel = true)
-//    public Object[][] features() {
-//        //return testNGCucumberRunner.provideFeatures();
-//        return testNGCucumberRunner.provideScenarios();
-//    }
-
-
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod(Method method){
 
@@ -120,17 +105,6 @@ public class TestBase {
         }
     }
 
-//    @AfterClass(alwaysRun = true)
-//    public void afterClass(){
-//
-//        try {
-//
-//            testNGCucumberRunner.finish();
-//
-//        }catch (Exception e){
-//            e.printStackTrace();
-//        }
-//    }
 
     @BeforeTest
     public void beforeTest(){
